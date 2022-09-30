@@ -1,4 +1,4 @@
-name: APK-J Build
+name: APK-J2 Build
 
 on:
 #  push:
@@ -18,8 +18,8 @@ jobs:
         run: git clone -b main --depth=1 https://github.com/q215613905/TVBoxOS.git
       - name: DIY
         run: |
-          chmod +x diy-J.sh
-          bash ${{ github.workspace }}/diy-J.sh
+          chmod +x diy-JFrank.sh
+          bash ${{ github.workspace }}/diy-JFrank.sh
       - name: Build With Gradle
         run: |
           num=$(find ${{ github.workspace }} -name gradlew  | awk -F"/" '{print NF-1}')
