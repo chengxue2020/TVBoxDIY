@@ -48,7 +48,7 @@ sed -i 's/API_URL, \"\"/API_URL, \"https:\/\/ghproxy.com\/https:\/\/raw.githubus
 sed -i 's/getColor\(R.color.color_02F8E1\)/getColor\(R.color.color_1890FF\)/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/adapter/SeriesAdapter.java
 
 #首页直播图标修改
-mv $CURRENT_DIR/icon_live.xml $CURRENT_DIR/$DIR/app/src/main/res/drawable/icon_live.xml
+mv $CURRENT_DIR/DIY/icon_live.xml $CURRENT_DIR/$DIR/app/src/main/res/drawable/icon_live.xml
 #首页年月日
 sed -i 's/yyyy\/MM\/dd HH:mm/yyyy\/MM\/dd EE HH:mm/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/HomeActivity.java
 #点播界面筛选菜单背景
