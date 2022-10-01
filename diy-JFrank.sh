@@ -6,7 +6,7 @@ num=$(find $CURRENT_DIR -name gradlew  | awk -F"/" '{print NF-1}')
 DIR=$(find $CURRENT_DIR -name gradlew  | cut -d \/ -f$num)
 cd $CURRENT_DIR/$DIR
 #共存
-sed -i 's/com.github.tvbox.osc/com.github.tvbox.osc.jy/g' $CURRENT_DIR/$DIR/app/build.gradle
+sed -i 's/com.github.tvbox.osc/com.github.tvbox.Frank/g' $CURRENT_DIR/$DIR/app/build.gradle
 #签名
 signingConfigs='ICAgIHNpZ25pbmdDb25maWdzIHtcCiAgICAgICAgaWYgKHByb2plY3QuaGFzUHJvcGVydHkoIlJFTEVBU0VfU1RPUkVfRklMRSIpKSB7XAogICAgICAgICAgICBteUNvbmZpZyB7XAogICAgICAgICAgICAgICAgc3RvcmVGaWxlIGZpbGUoUkVMRUFTRV9TVE9SRV9GSUxFKVwKICAgICAgICAgICAgICAgIHN0b3JlUGFzc3dvcmQgUkVMRUFTRV9TVE9SRV9QQVNTV09SRFwKICAgICAgICAgICAgICAgIGtleUFsaWFzIFJFTEVBU0VfS0VZX0FMSUFTXAogICAgICAgICAgICAgICAga2V5UGFzc3dvcmQgUkVMRUFTRV9LRVlfUEFTU1dPUkRcCiAgICAgICAgICAgICAgICB2MVNpZ25pbmdFbmFibGVkIHRydWVcCiAgICAgICAgICAgICAgICB2MlNpZ25pbmdFbmFibGVkIHRydWVcCiAgICAgICAgICAgICAgICBlbmFibGVWM1NpZ25pbmcgPSB0cnVlXAogICAgICAgICAgICAgICAgZW5hYmxlVjRTaWduaW5nID0gdHJ1ZVwKICAgICAgICAgICAgfVwKICAgICAgICB9XAogICAgfVwKXA=='
 signingConfig='ICAgICAgICAgICAgaWYgKHByb2plY3QuaGFzUHJvcGVydHkoIlJFTEVBU0VfU1RPUkVfRklMRSIpKSB7XAogICAgICAgICAgICAgICAgc2lnbmluZ0NvbmZpZyBzaWduaW5nQ29uZmlncy5teUNvbmZpZ1wKICAgICAgICAgICAgfVwK'
@@ -41,23 +41,24 @@ mv $CURRENT_DIR/DIY/icon_loading.png $CURRENT_DIR/$DIR/app/src/main/res/drawable
 mv $CURRENT_DIR/DIY/anim_loading.xml $CURRENT_DIR/$DIR/app/src/main/res/drawable/anim_loading.xml
 #添加颜色值
 sed '7i \<color name=\"color_FF18D6FF\"\>\#FF18D6FF\<\/color\>' $CURRENT_DIR/$DIR/app/src/main/res/values/colors.xml
-sed '8i \<color name=\"color_8800FF0A\">\#8800FF0A\<\/color\>' $CURRENT_DIR/$DIR/app/src/main/res/values/colors.xml
+sed '8i \<color name=\"color_8800FF0A\"\>\#8800FF0A\<\/color\>' $CURRENT_DIR/$DIR/app/src/main/res/values/colors.xml
+
 #接口内置
 sed -i 's/API_URL, \"\"/API_URL, \"https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/chengxue2020\/Cat-ports\/main\/main.json\"/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/api/ApiConfig.java
-#EPG
+#点播详情界面"第几集“字体的颜色
 sed -i 's/getColor\(R.color.color_02F8E1\)/getColor\(R.color.color_1890FF\)/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/adapter/SeriesAdapter.java
-
-#首页直播图标修改
-mv $CURRENT_DIR/DIY/icon_live.xml $CURRENT_DIR/$DIR/app/src/main/res/drawable/icon_live.xml
-#首页年月日
-sed -i 's/yyyy\/MM\/dd HH:mm/yyyy\/MM\/dd EE HH:mm/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/HomeActivity.java
-#点播界面筛选菜单背景
-sed -i 's/drawable\/shape_dialog_filter_bg/drawable\/shape_dialog_vod_filter_bg/g' $CURRENT_DIR/$DIR/app/src/main/res/layout/player_vod_control_view.xml
-mv $CURRENT_DIR/DIY/shape_dialog_vod_filter_bg.xml $CURRENT_DIR/$DIR/app/src/main/res/drawable/shape_dialog_vod_filter_bg.xml
 #点播界面集数背景
 sed -i 's/color_6C3D3D3D/color_66000000/g' $CURRENT_DIR/$DIR/app/src/main/res/drawable/shape_source_series_focus.xml
+#首页直播图标修改
+mv $CURRENT_DIR/DIY/icon_live.xml $CURRENT_DIR/$DIR/app/src/main/res/drawable/icon_live.xml
+#首页年月日+周几
+sed -i 's/yyyy\/MM\/dd HH:mm/yyyy\/MM\/dd EE HH:mm/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/HomeActivity.java
+#点播界面底部菜单背景
+sed -i 's/drawable\/shape_dialog_filter_bg/drawable\/shape_dialog_vod_filter_bg/g' $CURRENT_DIR/$DIR/app/src/main/res/layout/player_vod_control_view.xml
+mv $CURRENT_DIR/DIY/shape_dialog_vod_filter_bg.xml $CURRENT_DIR/$DIR/app/src/main/res/drawable/shape_dialog_vod_filter_bg.xml
+
 #点播界面中间的网速下移
-sed -i 's/dimen/vs_40/dimen/vs_76/g' $CURRENT_DIR/$DIR/app/src/main/res/layout/player_vod_control_view.xml
+sed -i 's/dimen\/vs_40/dimen\/vs_76/g' $CURRENT_DIR/$DIR/app/src/main/res/layout/player_vod_control_view.xml
 #EPG
 sed -i 's/EPG_URL,\"\"/EPG_URL,\"https:\/\/epg.112114.xyz\/\"/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/LivePlayActivity.java
 #直播界面频道列表中跳动条颜色
