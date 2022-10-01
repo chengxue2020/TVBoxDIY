@@ -23,7 +23,7 @@ echo "RELEASE_KEY_PASSWORD=TVBoxOSC" >>$CURRENT_DIR/$DIR/gradle.properties
 #xwalk修复
 #sed -i 's/download.01.org\/crosswalk\/releases\/crosswalk\/android\/maven2/raw.githubusercontent.com\/chengxue2020\/TVBoxDIY\/main/g' $CURRENT_DIR/$DIR/build.gradle
 #更改默认项
-mv $CURRENT_DIR/DIY/app.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/base/App.java
+mv $CURRENT_DIR/DIY/App.java $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/base/App.java
 #名称修改
 sed -i 's/TVBox/TVBox_3.0/g' $CURRENT_DIR/$DIR/app/src/main/res/values/strings.xml
 #改版本号及包名
