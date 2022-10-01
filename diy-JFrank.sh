@@ -39,7 +39,7 @@ mv $CURRENT_DIR/DIY/app_banner.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/a
 #载入动画修改
 mv $CURRENT_DIR/DIY/icon_loading.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/icon_loading.png
 mv $CURRENT_DIR/DIY/anim_loading.xml $CURRENT_DIR/$DIR/app/src/main/res/drawable/anim_loading.xml
-#添加颜色值
+#添加颜色值---------------------------------
 sed '7i \<color name=\"color_FF18D6FF\"\>\#FF18D6FF\<\/color\>' $CURRENT_DIR/$DIR/app/src/main/res/values/colors.xml
 sed '8i \<color name=\"color_8800FF0A\"\>\#8800FF0A\<\/color\>' $CURRENT_DIR/$DIR/app/src/main/res/values/colors.xml
 
@@ -63,8 +63,8 @@ mv $CURRENT_DIR/DIY/shape_dialog_vod_filter_bg.xml $CURRENT_DIR/$DIR/app/src/mai
 #点播界面中间的网速下移
 sed -i 's/dimen\/vs_40/dimen\/vs_76/g' $CURRENT_DIR/$DIR/app/src/main/res/layout/player_vod_control_view.xml
 
-#直播界面频道列表中跳动条颜色
-sed -i 's/setColor\(Color.RED\)/setColor\(Color\.WHITE\)/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/tv/widget/AudioWaveView.java
+#直播界面频道列表中跳动条颜色-------------------------------------------------
+sed -i 's/setColor\(Color\.RED\)/setColor\(Color\.WHITE\)/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/tv/widget/AudioWaveView.java
 #直播界面右上角图标由软件图标更改为载入图标
 sed -i 's/app_icon/icon_loading/g' $CURRENT_DIR/$DIR/app/src/main/res/layout/activity_live_play.xml
 #点播界面进度条背景色
