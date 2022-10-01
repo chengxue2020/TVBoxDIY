@@ -1,4 +1,4 @@
-name: APK-J2 Build
+name: test Build
 
 on:
 #  push:
