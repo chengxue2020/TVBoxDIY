@@ -45,6 +45,9 @@ sed '8i \<color name=\"color_8800FF0A\"\>\#8800FF0A\<\/color\>' $CURRENT_DIR/$DI
 
 #接口内置
 sed -i 's/API_URL, \"\"/API_URL, \"https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/chengxue2020\/Cat-ports\/main\/main.json\"/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/api/ApiConfig.java
+#EPG接口
+sed -i 's/EPG_URL,\"\"/EPG_URL,\"https:\/\/epg.112114.xyz\/\"/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/LivePlayActivity.java
+
 #点播详情界面"第几集“字体的颜色
 sed -i 's/getColor\(R.color.color_02F8E1\)/getColor\(R.color.color_1890FF\)/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/adapter/SeriesAdapter.java
 #点播界面集数背景
@@ -59,10 +62,9 @@ mv $CURRENT_DIR/DIY/shape_dialog_vod_filter_bg.xml $CURRENT_DIR/$DIR/app/src/mai
 
 #点播界面中间的网速下移
 sed -i 's/dimen\/vs_40/dimen\/vs_76/g' $CURRENT_DIR/$DIR/app/src/main/res/layout/player_vod_control_view.xml
-#EPG
-sed -i 's/EPG_URL,\"\"/EPG_URL,\"https:\/\/epg.112114.xyz\/\"/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/LivePlayActivity.java
+
 #直播界面频道列表中跳动条颜色
-sed -i 's/setColor\(Color.RED\)/setColor\(Color.WHITE\)/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/tv/widget/AudioWaveView.java
+sed -i 's/setColor\(Color.RED\)/setColor\(Color\.WHITE\)/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/tv/widget/AudioWaveView.java
 #直播界面右上角图标由软件图标更改为载入图标
 sed -i 's/app_icon/icon_loading/g' $CURRENT_DIR/$DIR/app/src/main/res/layout/activity_live_play.xml
 #点播界面进度条背景色
