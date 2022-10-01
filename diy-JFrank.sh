@@ -40,8 +40,8 @@ mv $CURRENT_DIR/DIY/app_banner.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/a
 mv $CURRENT_DIR/DIY/icon_loading.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/icon_loading.png
 mv $CURRENT_DIR/DIY/anim_loading.xml $CURRENT_DIR/$DIR/app/src/main/res/drawable/anim_loading.xml
 #添加颜色值---------------------------------
-sed '7i \<color name=\"color_FF18D6FF\"\>\#FF18D6FF\<\/color\>' $CURRENT_DIR/$DIR/app/src/main/res/values/colors.xml
-sed '8i \<color name=\"color_8800FF0A\"\>\#8800FF0A\<\/color\>' $CURRENT_DIR/$DIR/app/src/main/res/values/colors.xml
+sed -i '7i \<color name=\"color_FF18D6FF\"\>\#FF18D6FF\<\/color\>' $CURRENT_DIR/$DIR/app/src/main/res/values/colors.xml
+sed -i '8i \<color name=\"color_8800FF0A\"\>\#8800FF0A\<\/color\>' $CURRENT_DIR/$DIR/app/src/main/res/values/colors.xml
 
 #接口内置
 sed -i 's/API_URL, \"\"/API_URL, \"https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/chengxue2020\/Cat-ports\/main\/main.json\"/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/api/ApiConfig.java
