@@ -72,7 +72,7 @@ sed -i 's/color_CC353744/color_8800FF0A/g' $CURRENT_DIR/$DIR/app/src/main/res/dr
 sed -i 's/color_353744/color_FF18D6FF/g' $CURRENT_DIR/$DIR/app/src/main/res/drawable/shape_dialog_filter_bg.xml
 #其他
 sed -i 's/color_99FFFFFF/color_99000000/g' $CURRENT_DIR/$DIR/app/src/main/res/drawable/shape_dialog_filter_bg.xml
-sed -i 's/\@color/color_6C3D3D3D/#CC181E28/g' $CURRENT_DIR/$DIR/app/src/main/res/drawable/shape_user_focus.xml
+sed -i 's/\@color\/color_6C3D3D3D/\#CC181E28/g' $CURRENT_DIR/$DIR/app/src/main/res/drawable/shape_user_focus.xml
 sed -i 's/radius=\"10mm\"/radius=\"30px\"/g' $CURRENT_DIR/$DIR/app/src/main/res/drawable/shape_user_focus.xml
 
 #增加DOH节点
