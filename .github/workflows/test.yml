@@ -10,6 +10,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
+    env:
+      local_xwalk: ${{ secrets.LOCAL_XWALK }}
+      # 登录蓝奏云后在控制台运行document.cookie
+      ylogin: ${{ secrets.YLOGIN }}
+      phpdisk_info: ${{ secrets.PHPDISK_INFO }}
+      # 蓝奏云里的文件夹ID（TVBoxOS:5848262）
+      lanzou_folder_id: 5889934
+    
     steps:
       - uses: actions/checkout@v3
         with:
