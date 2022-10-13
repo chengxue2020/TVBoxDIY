@@ -6,7 +6,7 @@ num=$(find $CURRENT_DIR -name gradlew  | awk -F"/" '{print NF-1}')
 DIR=$(find $CURRENT_DIR -name gradlew  | cut -d \/ -f$num)
 cd $CURRENT_DIR/$DIR
 #共存
-sed -i 's/com.github.tvbox.osc/com.github.tvbox.Frank/g' $CURRENT_DIR/$DIR/app/build.gradle
+sed -i 's/com.github.tvbox.osc/com.github.tvbox.Frank.py/g' $CURRENT_DIR/$DIR/app/build.gradle
 #加入时间函数，将版本号改为打包日期及时间
 sed -i '3i def static buildTime\(\) \{\n    return new Date\(\)\.format\(\"yyyyMMdd-HHmm\", TimeZone.getTimeZone\("GMT+08:00"\)\)\n    \}\n' $CURRENT_DIR/$DIR/app/build.gradle
 sed -i "s/.*versionName.*/ 		versionName \"Frank\"\.concat\(\"_\"\)\.concat\(buildTime\(\)\)\/\/根据打包日期生成版本号/g" $CURRENT_DIR/$DIR/app/build.gradle
