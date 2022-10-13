@@ -7,9 +7,10 @@ DIR=$(find $CURRENT_DIR -name gradlew  | cut -d \/ -f$num)
 cd $CURRENT_DIR/$DIR
 #共存
 sed -i 's/com.github.tvbox.osc/com.github.tvbox.Frank/g' $CURRENT_DIR/$DIR/app/build.gradle
-#改版本号
-sed -i '2i def static buildTime\(\) \{\n    return new Date\(\)\.format\(\"yyyyMMdd-HHmm\", TimeZone.getTimeZone\("GMT+08:00"\)\)\n    \}\n' $CURRENT_DIR/$DIR/app/build.gradle
-#sed -i 's#'1.1.0'#更改后的日期'  $CURRENT_DIR/$DIR/app/build.gradle
+#加入时间函数，将版本号改为打包日期及时间
+sed -i '3i def static buildTime\(\) \{\n    return new Date\(\)\.format\(\"yyyyMMdd-HHmm\", TimeZone.getTimeZone\("GMT+08:00"\)\)\n    \}\n' $CURRENT_DIR/$DIR/app/build.gradle
+sed -i "s/.*versionName.*/ 		versionName \"Frank\"\.concat\(\"_\"\)\.concat\(buildTime\(\)\)\/\/根据打包日期生成版本号/g" $CURRENT_DIR/$DIR/app/build.gradle
+
 
 #签名
 signingConfigs='ICAgIHNpZ25pbmdDb25maWdzIHtcCiAgICAgICAgaWYgKHByb2plY3QuaGFzUHJvcGVydHkoIlJFTEVBU0VfU1RPUkVfRklMRSIpKSB7XAogICAgICAgICAgICBteUNvbmZpZyB7XAogICAgICAgICAgICAgICAgc3RvcmVGaWxlIGZpbGUoUkVMRUFTRV9TVE9SRV9GSUxFKVwKICAgICAgICAgICAgICAgIHN0b3JlUGFzc3dvcmQgUkVMRUFTRV9TVE9SRV9QQVNTV09SRFwKICAgICAgICAgICAgICAgIGtleUFsaWFzIFJFTEVBU0VfS0VZX0FMSUFTXAogICAgICAgICAgICAgICAga2V5UGFzc3dvcmQgUkVMRUFTRV9LRVlfUEFTU1dPUkRcCiAgICAgICAgICAgICAgICB2MVNpZ25pbmdFbmFibGVkIHRydWVcCiAgICAgICAgICAgICAgICB2MlNpZ25pbmdFbmFibGVkIHRydWVcCiAgICAgICAgICAgICAgICBlbmFibGVWM1NpZ25pbmcgPSB0cnVlXAogICAgICAgICAgICAgICAgZW5hYmxlVjRTaWduaW5nID0gdHJ1ZVwKICAgICAgICAgICAgfVwKICAgICAgICB9XAogICAgfVwKXA=='
