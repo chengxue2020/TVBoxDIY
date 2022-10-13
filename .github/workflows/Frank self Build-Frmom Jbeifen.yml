@@ -36,28 +36,21 @@ jobs:
           cd $DIR
           chmod +x gradlew
           ./gradlew assembledebug --build-cache --parallel --daemon --warning-mode all
-
       - name: Prepare App
         run: |
-          rm -rf apk/
-          mkdir -p apk/
-          for file in `find ~ -name "*release*.apk" -print`; do
-            mv "$file" apk/TVBox_Frank_${{ env.tag }}_Release.apk
+          mkdir -p ${{ github.workspace }}/apk/
+          for file in `find ~ -name "*.apk" -print`; do
+            mv "$file" ${{ github.workspace }}/apk/
           done
-          for file in `find ~ -name "*debug*.apk" -print`; do
-            mv "$file" apk/TVBox_Frank_${{ env.tag }}_Debug.apk
-          done
-
       - name: Upload App To Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: TVBox_Frank_Release_and_Debug
-          path: TVBoxOSC/apk/*
+          name: com.github.tvbox.osc
+          path: ${{ github.workspace }}/apk/*
 
 
       - name: Release and Upload Assets(release area)
         uses: softprops/action-gh-release@v1
-        if: ${{ env.commit }}
         with:
           name: ${{ env.tag }}
           tag_name: ${{ env.tag }}
@@ -67,3 +60,17 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
+
+
+      - name: Prepare App
+        if: ${{ env.commit }}
+        working-directory: TVBoxOSC
+        run: |
+          rm -rf apk/
+          mkdir -p apk/
+          for file in `find ~ -name "*release*.apk" -print`; do
+            mv "$file" apk/TVBox_Frank_${{ env.tag }}_Release.apk
+          done
+          for file in `find ~ -name "*debug*.apk" -print`; do
+            mv "$file" apk/TVBox_Frank_${{ env.tag }}_Debug.apk
+          done
