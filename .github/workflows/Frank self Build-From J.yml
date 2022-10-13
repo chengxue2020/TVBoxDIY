@@ -1,4 +1,4 @@
-name: Frank self Build-Frmom J Ver.
+name: Frank self Build-From J Ver.
 
 on:
 #  push:
@@ -35,7 +35,7 @@ jobs:
           DIR=$(find ${{ github.workspace }} -name gradlew  | cut -d \/ -f$num)
           cd $DIR
           chmod +x gradlew
-          ./gradlew assembledebug --build-cache --parallel --daemon --warning-mode all
+          ./gradlew assemblerelease --build-cache --parallel --daemon --warning-mode all
       - name: Prepare App
         run: |
           mkdir -p ${{ github.workspace }}/apk/
