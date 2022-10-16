@@ -48,7 +48,8 @@ sed -i '7i \<color name=\"color_FF18D6FF\"\>\#FF18D6FF\<\/color\>' $CURRENT_DIR/
 sed -i '8i \<color name=\"color_8800FF0A\"\>\#8800FF0A\<\/color\>' $CURRENT_DIR/$DIR/app/src/main/res/values/colors.xml
 
 #接口内置
-sed -i 's/API_URL, \"\"/API_URL, \"https:\/\/ghproxy.com\/https:\/\/raw.githubusercontent.com\/chengxue2020\/Cat-ports\/main\/JS\/js.json\"/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/api/ApiConfig.java
+sed -i 's/API_URL, \"\"/API_URL, \"https:\/\/chengxue2020.github.io\/Cat-ports\/main.json\"/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/api/ApiConfig.java
+
 #EPG接口
 sed -i 's/EPG_URL,\"\"/EPG_URL,\"https:\/\/epg.112114.xyz\/\"/g' $CURRENT_DIR/$DIR/app/src/main/java/com/github/tvbox/osc/ui/activity/LivePlayActivity.java
 
