@@ -122,5 +122,15 @@ mv $CURRENT_DIR/DIY/drpy.ym.js $CURRENT_DIR/$DIR/assets/js/lib/drpy.ym.js
 mv $CURRENT_DIR/DIY/drT.js $CURRENT_DIR/$DIR/assets/js/lib/drT.js
 mv $CURRENT_DIR/DIY/util.js $CURRENT_DIR/$DIR/assets/js/lib/util.js
 mv $CURRENT_DIR/DIY/util.ym.js $CURRENT_DIR/$DIR/assets/js/lib/util.ym.js
+mv $CURRENT_DIR/DIY/app_bg.png $CURRENT_DIR/$DIR/app/src/main/res/drawable/app_bg.png
+
+mv $CURRENT_DIR/DIY/cheerio.min.js $CURRENT_DIR/$DIR/app/src/main/assets/js/lib/cheerio.min.js
+mv $CURRENT_DIR/DIY/crypto-js.js $CURRENT_DIR/$DIR/app/src/main/assets/js/lib/crypto-js.js
+mv $CURRENT_DIR/DIY/dayjs.min.js $CURRENT_DIR/$DIR/app/src/main/assets/js/lib/dayjs.min.js
+mv $CURRENT_DIR/DIY/underscore-esm-min.js $CURRENT_DIR/$DIR/app/src/main/assets/js/lib/underscore-esm-min.js
+mv $CURRENT_DIR/DIY/uri.min.js $CURRENT_DIR/$DIR/app/src/main/assets/js/lib/uri.min.js
+#EPG模糊匹配
+mv $CURRENT_DIR/DIY/Roinlong_Epg.json $CURRENT_DIR/$DIR/assets/Roinlong_Epg.json
+mv $CURRENT_DIR/DIY/ua.db $CURRENT_DIR/$DIR/assets/ua.db
 
 echo 'DIY end'
