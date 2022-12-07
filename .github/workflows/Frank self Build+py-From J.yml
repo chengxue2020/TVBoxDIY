@@ -1,4 +1,4 @@
-name: Frank self Build-From J Ver.
+name: Frank self+py Build-From J Ver.
 
 on:
   schedule:
